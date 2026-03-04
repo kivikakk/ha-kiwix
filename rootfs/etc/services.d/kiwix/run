@@ -14,8 +14,8 @@ LOG_LEVEL=$(bashio::config 'log_level')
 MAX_UPLOAD_SIZE=$(bashio::config 'max_upload_size')
 
 # Internal ports (not exposed externally)
-KIWIX_INTERNAL_PORT=8080
-MANAGEMENT_INTERNAL_PORT=8081
+KIWIX_INTERNAL_PORT=17080
+MANAGEMENT_INTERNAL_PORT=17081
 
 bashio::log.info "Configuration:"
 bashio::log.info "  External Port (nginx): ${PORT}"
@@ -93,10 +93,10 @@ bashio::log.info "Using --library and --monitorLibrary for automatic ZIM file de
 # Instead, we rely on nginx sub_filter and JavaScript to rewrite paths
 
 if [[ -f "${LIBRARY_XML}" ]]; then
-    nohup kiwix-serve --library --monitorLibrary --address 0.0.0.0 --port ${KIWIX_INTERNAL_PORT} "${LIBRARY_XML}" \
+    nohup kiwix-serve --library --monitorLibrary --address all --port ${KIWIX_INTERNAL_PORT} "${LIBRARY_XML}" \
         > /proc/1/fd/1 2>/proc/1/fd/2 &
 else
-    nohup kiwix-serve --library --monitorLibrary --address 0.0.0.0 --port ${KIWIX_INTERNAL_PORT} . \
+    nohup kiwix-serve --library --monitorLibrary --address all --port ${KIWIX_INTERNAL_PORT} . \
         > /proc/1/fd/1 2>/proc/1/fd/2 &
 fi
 KIWIX_PID=$!

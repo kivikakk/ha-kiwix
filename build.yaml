@@ -7,7 +7,7 @@ build_from:
 labels:
   org.opencontainers.image.title: "Home Assistant Add-on: Kiwix"
   org.opencontainers.image.description: "Serve offline Wikipedia and other ZIM files with management interface"
-  org.opencontainers.image.source: "https://github.com/MichalTorma/ha-kiwix"
+  org.opencontainers.image.source: "https://github.com/kivikakk/ha-kiwix"
   org.opencontainers.image.licenses: "MIT"
-  org.opencontainers.image.documentation: "https://github.com/MichalTorma/ha-kiwix/blob/main/README.md"
+  org.opencontainers.image.documentation: "https://github.com/kivikakk/ha-kiwix/blob/main/README.md"
 
